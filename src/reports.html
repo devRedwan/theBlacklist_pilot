@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/46139afb7e.js"
+      crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reports.css" />
+    <script defer src="/src/index.js"></script>
+    <script defer src="reports.js"></script>
+    <title>The BlackList</title>
+  </head>
+
+  <body>
+    <nav
+      class="reports__navbar navbar fixed-top navbar-expand-lg navbar-dark mb-md-5 mb-lg-0">
+      <div class="container-fluid px-lg-4">
+        <a class="navbar-brand fs-2 fw-bold logo" href="#"
+          ><img
+            src="/assets/logoTheBlacklistLight.png"
+            alt="Logo"
+            class="d-inline-block logo__img" />The
+          <span class="theme-color">BlackList</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end nav-menu"
+          id="navbarNav">
+          <div class="navbar-nav align-items-center fw-bold nav-menu__list">
+            <a class="nav-link" href="../index.html">Home</a>
+            <a class="nav-link mx-5 active" aria-current="page" href="#"
+              >Reports</a
+            >
+            <a class="nav-link" href="../index.html#filingReport_section"
+              >File A Report</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container header__bg-img--wrapper">
+      <div class="row">
+        <img
+          src="/assets/NYPD_Badge.png"
+          alt=""
+          class="header_img img-fluid img-responsive"
+          draggable="false" />
+      </div>
+    </section>
+
+    <section class="reports-landing__container container py-5">
+      <div class="reports-landing__row row my-5">
+        <div class="reported__header vstack">
+          <h1 class="reports__header--title text-center fw-bold">
+            Officially
+            <span class="theme-color"> Reported </span> NYPD Complaints Data
+          </h1>
+          <p class="reported__header--subtitle text-center mt-0 theme-color">
+            2022 Year-To-Date
+          </p>
+        </div>
+
+        <div class="reported__sub-header py-5">
+          <h4 class="reported__sub-header--text fs-5 text-center">
+            This dataset includes all valid felony, misdemeanor, and violation
+            crimes reported to the New York City Police Department (NYPD) from
+            the beginning to the end of current year.
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    <section class="reports-filter-container container">
+      <div class="report-filter-row row my-5 mr-0">
+        <div class="report-filter-col">
+          <h1
+            class="report-filter__title col-lg d-flex justify-content-center fw-bold theme-color mb-5 pb-2">
+            Filter Your Search
+          </h1>
+
+          <form class="report-filter__form" id="report-filter-form">
+            <div class="filter__first--row row g-5 mb-5">
+              <div class="filter__borough col">
+                <div class="form-floating">
+                  <select
+                    onchange="handleChange(event)"
+                    id="filter__select__borough"
+                    class="filter__select--borough form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                    aria-label="default select ">
+                    <option
+                      type="option"
+                      value=""
+                      class="text-light"
+                      selected></option>
+                    <option type="option" value="STATEN ISLAND">
+                      Staten Island
+                    </option>
+                    <option type="option" value="BRONX">Bronx</option>
+                    <option type="option" value="MANHATTAN">Manhattan</option>
+                    <option type="option" value="QUEENS">Queens</option>
+                    <option type="option" value="BROOKLYN">Brooklyn</option>
+                  </select>
+                  <label
+                    for="floatingSelectGrid"
+                    class="floating__form--label fs-5"
+                    >Borough</label
+                  >
+                </div>
+              </div>
+
+              <div class="filter__date col">
+                <div class="input-group mb-3 d-flex justify-content-center">
+                  <div class="form-floating d-flex justify-content-between">
+                    <input
+                      onchange="handleDateChange(event)"
+                      type="date"
+                      min="2006-01-01"
+                      max="2022-09-30"
+                      class="filter__date--input form-control bg-transparent text-white pb-0"
+                      id="filter__date__from"
+                      placeholder="Date" />
+                    <label
+                      for="filter__date--from"
+                      class="floating__form--label fs-5"
+                      >From</label
+                    >
+                  </div>
+                  <span class="filter__date--label input-group-text fs-5"
+                    >Date</span
+                  >
+                  <div class="form-floating d-flex justify-content-between">
+                    <input
+                      onchange="handleDateChange(event)"
+                      type="date"
+                      min="2006-01-01"
+                      max="2022-09-30"
+                      class="filter__date--input form-control bg-transparent text-white pb-0"
+                      id="filter__date__to"
+                      placeholder="Date" />
+                    <label for="filter__date--to" class="floating__form--label"
+                      >To</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter__offense-level col">
+                <div class="form-floating">
+                  <select
+                    id="filter__select__offense_level"
+                    onchange="handleChange(event)"
+                    class="filter__select--offense-level form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                    aria-label="default select ">
+                    <option type="option" value="" selected></option>
+                    <option type="option" value="FELONY">Felony</option>
+                    <option type="option" value="MISDEMEANOR">
+                      Misdemeanor
+                    </option>
+                    <option type="option" value="VIOLATION">Violation</option>
+                  </select>
+                  <label
+                    for="floatingSelectGrid"
+                    class="floating__form--label fs-5"
+                    >Level of Offense</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="filter__second--row row px-0 mb-5 justify-content-around">
+              <div class="filter__suspect col-auto px-0">
+                <div class="suspect__input-group input-group mb-3">
+                  <span class="input-group-text filter__suspect--label"
+                    >Suspect</span
+                  >
+
+                  <div class="form-floating">
+                    <select
+                      id="suspect__select__sex"
+                      onchange="handleChange(event)"
+                      class="suspect__select--sex form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="suspectFloatingSexInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="M">Male</option>
+                      <option type="option" value="F">Female</option>
+                    </select>
+                    <label for="suspectFloatingSexInputGroup" class="fs-5"
+                      >Sex</label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="suspect__select__age"
+                      onchange="handleChange(event)"
+                      class="suspect__select--age-group form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="suspectFloatingAgeGroupInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="&lt;18">&lt;18</option>
+                      <option type="option" value="18-24">18-24</option>
+                      <option type="option" value="25-44">25-44</option>
+                      <option type="option" value="45-64">45-64</option>
+                      <option type="option" value="65+">65+</option>
+                      <option type="option" value="unknown">Unknown</option>
+                    </select>
+                    <label for="suspectFloatingAgeGroupInputGroup" class="fs-5"
+                      >Age</label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="suspect__select__race"
+                      onchange="handleChange(event)"
+                      class="suspect__select--race form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="suspectFloatingRaceInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="WHITE">White</option>
+                      <option type="option" value="WHITE HISPANIC">
+                        White Hispanic
+                      </option>
+                      <option type="option" value="BLACK">Black</option>
+                      <option type="option" value="BLACK HISPANIC">
+                        Black Hispanic
+                      </option>
+                      <option type="option" value="ASIAN / PACIFIC ISLANDER">
+                        Asian / Pacific Islander
+                      </option>
+                      <option
+                        type="option"
+                        value="American Indian / Alaskan Native">
+                        American Indian / Alaskan Native
+                      </option>
+                      <option type="option" value="other">Other</option>
+                      <option type="option" value="unknown">Unknown</option>
+                    </select>
+                    <label for="suspectFloatingRaceInputGroup" class="fs-5"
+                      >Race</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="filter__victim col-auto px-0">
+                <div class="victim__input-group input-group mb-3">
+                  <span class="input-group-text filter__victim--label"
+                    >Victim</span
+                  >
+
+                  <div class="form-floating">
+                    <select
+                      id="victim__select__sex"
+                      onchange="handleChange(event)"
+                      class="victim__select--sex form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="victimFloatingSexInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="M">Male</option>
+                      <option type="option" value="F">Female</option>
+                    </select>
+                    <label for="victimFloatingSexInputGroup" class="fs-5"
+                      >Sex</label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="victim__select__age"
+                      onchange="handleChange(event)"
+                      class="victim__select--age-group form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="victimFloatingAgeGroupInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="&lt;18">&lt;18</option>
+                      <option type="option" value="18-24">18-24</option>
+                      <option type="option" value="25-44">25-44</option>
+                      <option type="option" value="45-64">45-64</option>
+                      <option type="option" value="65+">65+</option>
+                      <option type="option" value="unknown">Unknown</option>
+                    </select>
+                    <label for="victimFloatingAgeGroupInputGroup" class="fs-5"
+                      >Age</label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="victim__select__race"
+                      onchange="handleChange(event)"
+                      class="victim__select--race form-select bg-transparent text-white pb-0 fs-5 fw-semibold"
+                      aria-label="default select"
+                      id="victimFloatingRaceInputGroup">
+                      <option type="option" value="" selected></option>
+                      <option type="option" value="WHITE">White</option>
+                      <option type="option" value="WHITE HISPANIC">
+                        White Hispanic
+                      </option>
+                      <option type="option" value="BLACK">Black</option>
+                      <option type="option" value="BLACK HISPANIC">
+                        Black Hispanic
+                      </option>
+                      <option type="option" value="ASIAN / PACIFIC ISLANDER">
+                        Asian / Pacific Islander
+                      </option>
+                      <option
+                        type="option"
+                        value="AMERICAN INDIAN / ALASKAN NATIVE">
+                        American Indian / Alaskan Native
+                      </option>
+                      <option type="option" value="OTHER">Other</option>
+                      <option type="option" value="UNKNOWN">Unknown</option>
+                    </select>
+                    <label for="victimFloatingRaceInputGroup" class="fs-5"
+                      >Race</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="renderAPIData();scrollToSection('reported-complaints-data-table');"
+              class="filter__btn filter__form--submit buttons btn btn-lg border-0 fs-md-5 fw-semibold py-3 ps-4"
+              type="button"
+              name="submit_buttom"
+              id="table_filter_submit">
+              Generate Report
+            </button>
+          </form>
+          <!-- the keyword-searchBar -->
+          <div
+            class="filter__form--last-row report-keyword-search-column d-flex flex-column align-items-center">
+            <div class="search_bar input-group justify-content-center mt-5">
+              <div class="filter__keywordSearch form-floating col-8">
+                <input
+                  type="text"
+                  class="input__keywordSearch form-control fs-4 fw-semibold bg-transparent ps-4"
+                  id="floatingSearchBar"
+                  onkeyup="filterTable()"
+                  placeholder="Keyword Search" />
+                <label
+                  for="floatingKeywordSearch"
+                  class="keyword__search--label fs-5 ps-4"
+                  >Search the whole table using Keywords</label
+                >
+              </div>
+              <button class="input-group-text px-4 keyword-search__submit">
+                <i class="fa-solid fa-arrow-right keyword__search--arrow"></i>
+              </button>
+            </div>
+          </div>
+          <!-- the keyword-searchBar -->
+        </div>
+      </div>
+    </section>
+
+    <section class="reports-table-container container py-5">
+      <div class="report-table-row row my-5">
+        <div
+          class="alert alert-danger alert-dismissible text-center fade show"
+          role="alert">
+          <h1 class="alert-title">ALERT</h1>
+          <h5 class="alert-description">
+            This table is only capable of showing the first 100 results from
+            your search. <br />
+            We are looking into getting all the information from NYPD at once.
+            You will be the first to see it when we have the functionality
+            available.
+          </h5>
+          <button
+            class="btn-close"
+            aria-label="close"
+            data-bs-dismiss="alert"></button>
+        </div>
+        <div
+          class="alert alert-success alert-dismissible text-center fade show"
+          role="alert">
+          <h5 class="alert-description">
+            To retrieve ALL your desired data, try requesting more specific
+            results using more filters.
+          </h5>
+          <button
+            class="btn-close"
+            aria-label="close"
+            data-bs-dismiss="alert"></button>
+        </div>
+        <div
+          class="alert alert-primary alert-dismissible text-center fade show"
+          role="alert">
+          <h5 class="alert-description">
+            <span class="theme-color fs-4 fw-semibold">
+              Click on the column headers to sort in ascending or descending
+              order.
+            </span>
+            <br />To navigate between columns outside of screen view, click
+            anywhere in the table, then use the arrow keys on your keyboard.
+          </h5>
+          <button
+            class="btn-close"
+            aria-label="close"
+            data-bs-dismiss="alert"></button>
+        </div>
+        <div class="report-table table-responsive">
+          <table
+            class="table table-dark table-striped table-hover text-nowrap text-center align-items-center data-filter-control-multiple-search-delimiter"
+            id="reported-complaints-data-table">
+            <thead class="reports__table--header text-center">
+              <p class="latest__updated__date">
+                Latest Updates are from: 09/30/2022
+              </p>
+              <tr class="table__header--row align-middle">
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="date_of_incident"
+                  data-sort-type="date"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Date of Incident <br />(MM/DD/YYYY)
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="time_of_incident"
+                  data-sort-type="time"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Time of Incident <br />(HH:MM:SS)
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="date_reported_to_police"
+                  data-sort-type="date"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Date Reported
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="precinct"
+                  data-sort-type="integer"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Precinct
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="borough"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Borough
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="exact_location_of_occurance"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Exact Location of Occurance <br />(Lattitude, Longtitude)
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="level_of_offense"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Level of Offence
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="description_of_offense"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Description of Offence
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="transit_station_name"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Transit Station Name <br />(If Applicable)
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="suspect_age_group"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Suspect's <br />Age
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="suspect_race"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Suspect's <br />Race Description
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="suspect_sex"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Suspect's <br />Sex Description
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="victim_age_group"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Victim's <br />Age
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="victim_race"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Victim's<br />Race Description
+                </th>
+                <th
+                  onclick="sortColumns(event)"
+                  data-sort="victim_sex"
+                  data-sort-type="string"
+                  scope="col"
+                  class="table__column--header fw-light">
+                  Victim's <br />Sex Description
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="reports__table--rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container-fluid" id="footer">
+      <div class="row py-3" id="footer_row">
+        <div class="footer__copyright col d-flex justify-content-center">
+          © 2022/2023 ALl rights reserved. The Blacklist, created by &nbsp;
+          <span class="theme-color">Redwan Ahmed</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

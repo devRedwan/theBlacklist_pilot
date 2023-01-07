@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/logoTheBlacklistDark.png" />
+    <script
+      src="https://kit.fontawesome.com/46139afb7e.js"
+      crossorigin="anonymous"></script>
+    <script src="/src/index.js" defer></script>
+    <title>The BlackList</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-md-5 mb-lg-0">
+      <div class="container-fluid px-lg-4">
+        <a class="navbar-brand fs-2 fw-bold logo" href="#"
+          ><img
+            src="/assets/logoTheBlacklistLight.png"
+            alt="Logo"
+            class="d-inline-block logo__img" />The
+          <span class="theme-color">BlackList</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end nav-menu"
+          id="navbarNav">
+          <div class="navbar-nav align-items-center fw-bold nav-menu__list">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link mx-5" href="/src/reports.html">Reports</a>
+            <a class="nav-link" href="/index.html#filingReport_section"
+              >File A Report</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="container d-flex justify-content-center h-auto pb-md-4"
+      id="landing">
+      <div
+        class="row flex-nowrap flex-column-reverse flex-lg-row"
+        id="landing__row">
+        <div
+          class="landing__text-wrapper align-items-center align-items-lg-start justify-content-center vstack col-lg-6 col gap-5 p-xl-5 p-lg-2">
+          <div class="landing__text--header text-center text-lg-start">
+            <p class="landing__text text__header--subTitle mb-0">From the</p>
+            <h2 class="landing__text text__header--title px-lg-0">
+              Latest
+              <span class="theme-color">Official </span>
+              <span class="theme-color">NYPD </span>Data
+            </h2>
+          </div>
+          <h4
+            class="landing__text--description text-center text-lg-start fw-bold fs-3 fs-sm-2">
+            Lookup <span class="theme-color">Felonies</span> reported in your
+            area
+          </h4>
+
+          <a
+            class="landing__btn buttons btn btn-lg border-0 fs-5 fw-semibold py-3 ps-3"
+            href="/src/reports.html">
+            Lookup Incidents
+          </a>
+        </div>
+        <div
+          class="landing__img--wrapper d-flex justify-content-center col-lg-6 col p-xl-5 p-l-2 mx-auto">
+          <img
+            class="landing__img img-responsive"
+            src="/assets/illustration_landing.svg"
+            alt="Felony Incidents Lookup" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5" id="filter_section">
+      <div class="card border-0 mb-3 bg-transparent mx-lg-3 mx-sm-0">
+        <div class="row g-0 rounded-4 middle_row filter__row pb-5 pb-md-0">
+          <div
+            class="card__img--wrapper filter__img--wrapper rounded-4 col-md-4 p-4 p-md-0">
+            <img
+              class="card__img img-fluid w-70"
+              src="/assets/NYPD_Badge.png"
+              alt="" />
+          </div>
+
+          <div
+            class="filter__text--wrapper col-md-8 p-lg-5 vstack d-flex align-items-center justify-content-center my-5 px-4">
+            <div class="filter__text--header text-center mb-5">
+              <p class="filter__header--subTitle fw-light mb-0">
+                Use the following
+              </p>
+              <h2 class="filter__header--title fs-1 fw-bold">
+                <span class="theme-color">Filters</span> for your search
+              </h2>
+            </div>
+
+            <div
+              class="filter__icon--list min d-flex justify-content-center justify-content-sm-between hstack flex-wrap gap-sm-1 gap-5">
+              <div
+                class="filter__icon--wrapper col-5 col-sm-2 filter__date text-center">
+                <span class="filter__icon--img text-center mx-4"></span>
+                <h4 class="filter__icon--title mt-md-5">Dates</h4>
+              </div>
+              <div
+                class="filter__icon--wrapper col-5 col-sm-2 filter__location text-center">
+                <span class="filter__icon--img text-center mx-4"></span>
+                <h4 class="filter__icon--title mt-md-5">Locations</h4>
+              </div>
+              <div
+                class="filter__icon--wrapper col-5 col-sm-2 filter__suspect text-center">
+                <span class="filter__icon--img text-center mx-4"></span>
+                <h4 class="filter__icon--title mt-md-5">Suspects</h4>
+              </div>
+              <div
+                class="filter__icon--wrapper col-5 col-sm-2 filter__victim text-center">
+                <span class="filter__icon--img text-center mx-4"></span>
+                <h4 class="filter__icon--title mt-md-5">Victims</h4>
+              </div>
+            </div>
+
+            <a
+              class="filter__btn buttons btn btn-lg border-0 fs-sm-5 fw-semibold py-3 ps-3"
+              href="/src/reports.html">
+              NYPD Official Complaints Reports
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="filingReport_section container py-5"
+      id="filingReport_section">
+      <div class="card border-0 mb-3 bg-transparent mx-3 mx-sm-0">
+        <div
+          class="filingReport__row middle_row row g-0 rounded-4"
+          id="filingReport_row">
+          <div
+            class="filingReport__text--wrapper col-md-8 p-5 vstack d-flex justify-content-center align-items-center">
+            <div class="filingReport__text--header mb-4 text-center px-5">
+              <p class="filingReport__header--subTitle fw-light mb-0">File</p>
+              <h2 class="filingReport__header--title fs-1 fw-bold">
+                A Police Report with the <span class="theme-color">NYPD</span>
+              </h2>
+            </div>
+
+            <div class="filingReport__description--wrapper mb-4">
+              <p class="filingReport__description--text fs-sm-5">
+                You can report a crime and receive assistance from the police
+                regardless of your age or immigration status. If a crime is in
+                progress, or you have just witnessed or experienced a crime, try
+                to get to safety first.
+                <b>
+                  If you are in immediate danger,
+                  <span class="theme-color">please call 911</span>
+                </b>
+                right away. For other types of legal situations, click the link
+                below.
+              </p>
+            </div>
+            <a
+              target="_blank"
+              class="filter__btn buttons btn btn-lg border-0 fs-sm-5 fw-semibold py-3 ps-3"
+              href="https://www.nyc.gov/site/nypd/services/victim-services/how-to-report-a-crime.page">
+              File an online police report
+            </a>
+          </div>
+          <div
+            class="card__img--wrapper filingReport__img--wrapper col-md-4 rounded-4">
+            <img
+              class="filingReport__img card__img img-fluid w-70"
+              src="/assets/illustration_police_report.svg"
+              alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="footer">
+      <div class="d-flex pt-2 flex-column text-center" id="footer_row">
+        <span class="footer__copyright">
+          © 2022/2023 ALl rights reserved. The Blacklist,
+        </span>
+        <div>
+          created by &nbsp;<span class="theme-color">Redwan Ahmed</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+/* --------------------- Generic --------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700;900&family=Roboto:wght@400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #24242a;
+  color: white;
+  position: relative;
+}
+
+.theme-color {
+  color: #d54857;
+}
+
+.middle_row {
+  background-color: #2e2e35;
+}
+.buttons {
+  position: relative;
+  background-color: #d54857;
+  color: #fff;
+  padding-right: 56px;
+  width: fit-content;
+}
+
+.buttons::after {
+  position: absolute;
+  content: "\f061";
+  background-color: #c63d4c;
+  color: #a0212f;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.buttons:hover {
+  background-color: #e46270;
+}
+
+.buttons:hover:after {
+  background-color: #cc515e;
+}
+
+.card__img--wrapper {
+  position: relative;
+}
+
+.card__img--wrapper::after {
+  background: linear-gradient(45deg, #d54857 20%, #2eaeff 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.65;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* --------------------- Navbar --------------------- */
+.logo__img {
+  padding-right: 1rem;
+  height: 60px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  background-color: #d54857;
+  position: absolute;
+  bottom: -3px;
+  height: 3px;
+  width: 0;
+  right: 0;
+  transition: all 400ms ease;
+}
+
+.nav-link:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.navbar-toggler {
+  border-color: #d54857;
+}
+
+.sticky-top {
+  background-color: #2e2e35;
+  box-shadow: 0px 0px 50px 0px rgb(0 0 0 / 25%);
+  z-index: 999;
+  animation: revealNav 500ms ease;
+}
+
+@keyframes revealNav {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navbar-toggler {
+  box-shadow: none;
+}
+
+.navbar-toggler:focus {
+  border: 2px solid #d54857;
+  box-shadow: none;
+}
+
+/* --------------------- Landing --------------------- */
+#landing {
+  height: calc(100vh - 70px);
+}
+
+#landing__row {
+  width: 100%;
+}
+
+.landing__text-wrapper {
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms ease 500ms;
+}
+
+.landing__img--wrapper {
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms ease 500ms;
+}
+
+.text__header--title {
+  font-size: 4.5em;
+  font-weight: 700;
+}
+
+.landing__btn {
+  padding-right: 76px;
+}
+
+.landing__btn::after {
+  width: 3.5rem;
+}
+
+.landing__img {
+  width: 100%;
+}
+
+/* --------------------- Filter --------------------- */
+
+.filter__img--wrapper::after {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.filter__icon--list {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.filter__icon--wrapper {
+  position: relative;
+}
+
+.filter__icon--img::before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  position: relative;
+  font-size: 2rem;
+  color: #d54857;
+  top: 0;
+  font-weight: 900;
+}
+
+.filter__date .filter__icon--img::before {
+  content: "\f073";
+}
+
+.filter__location .filter__icon--img::before {
+  content: "\f3c5";
+}
+.filter__suspect .filter__icon--img::before {
+  content: "\f714";
+}
+.filter__victim .filter__icon--img::before {
+  content: "\f5b4";
+}
+
+.filter__icon--img::after {
+  content: "";
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  margin: -2.5rem 0 0 -2.5rem;
+  transform: rotate(45deg);
+  border-radius: 14px;
+  border: 3px solid rgba(110, 110, 122, 0.5);
+  display: block;
+  top: 20%;
+  left: 50%;
+}
+
+/* --------------------- filingReport --------------------- */
+
+#filingReport_section {
+  margin-bottom: 7rem;
+}
+
+.filingReport__img--wrapper::after {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+/* --------------------- filingReport --------------------- */
+footer {
+  background-color: #2e2e35;
+  height: auto;
+}
+
+/* --------------------- Responsive Design --------------------- */
+/* large screen */
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* regular screen */
+@media (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Tablet screen */
+
+@media (min-width: 760px) {
+  html {
+    font-size: 14px;
+  }
+  .landing__img {
+    width: 70%;
+  }
+  .landing__text--header .text__header--title {
+    padding: 0 2rem;
+  }
+  #filter_section {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .filter__icon--title {
+    font-size: 14px;
+  }
+  .filingReport_section .card__img {
+    object-fit: fill;
+  }
+}
+
+@media (max-width: 760px) {
+  .landing__text--header .text__header--title {
+    font-size: 3em;
+    font-weight: 700;
+    padding: 0 1rem;
+  }
+  .landing__img {
+    width: 70%;
+  }
+
+  .filter__btn {
+    font-size: 16px;
+  }
+
+  .filter__icon--title {
+    font-size: 14px;
+  }
+
+  .filter__icon--img::before {
+    top: -24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .filter__img--wrapper::after {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: inherit;
+  }
+
+  .filingReport__img--wrapper::after {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+}
+
+/* Mobile screen */
+@media (max-width: 476px) {
+  html {
+    font-size: 12px;
+  }
+
+  .landing__text--header .text__header--title {
+    font-size: 3.5em;
+    font-weight: 600;
+  }
+
+  .landing__img {
+    width: 80%;
+  }
+
+  .landing__btn {
+    padding-right: 56px;
+  }
+
+  .filter__btn {
+    font-size: 12px;
+    padding-right: 45px;
+  }
+
+  .filter__icon--img::before {
+    top: -18px;
+  }
+}
